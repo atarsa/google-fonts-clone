@@ -1,22 +1,26 @@
-.App {
-  text-align: center;
+body {
+  font-family: "Roboto", sans-serif;
+  box-sizing: border-box;
 }
 
-.App-logo {
-  height: 40vmin;
-}
-
-.App-header {
-  background-color: #282c34;
-  min-height: 100vh;
+header {
+  border-bottom: 1px solid #ccc;
+  margin: 0;
+  padding: 0 1em;
   display: flex;
-  flex-direction: column;
-  align-items: center;
-  justify-content: center;
-  font-size: calc(10px + 2vmin);
-  color: white;
+  justify-content: space-between;
+
 }
 
-.App-link {
-  color: #09d3ac;
+header .brand {
+  align-self: center;
+}
+
+header ul {
+  list-style: none;
+}
+
+header ul li {
+  display: inline-block;
+  padding: 0.5em;
 }
