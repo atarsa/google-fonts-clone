@@ -1,4 +1,5 @@
 import React from 'react'
+import { FontAwesomeIcon } from '@fortawesome/react-fontawesome'
 
 const FontNav = () => {
 
@@ -12,20 +13,21 @@ const FontNav = () => {
         placeholder="Type something"
       />
       <select>
-        <option value="20">20</option>
-        <option value="24">24</option>
-        <option value="32">32</option>
-        <option value="40">40</option>
+        <option value="20">20px</option>
+        <option value="24">24px</option>
+        <option value="32">32px</option>
+        <option value="40">40px</option>
       </select>
       <div className="toggleMode">
-        <div className="circle"></div>
-        <div className="circle"></div>
+        <FontAwesomeIcon icon="circle" />
+        <FontAwesomeIcon icon="circle" className="white" />
       </div>
       <div className="toggleLayout">
-          {/* grid/ layout icon */}
+          <FontAwesomeIcon icon="list" />
+          <FontAwesomeIcon icon="border-all" />
       </div>
       <div className="reset">
-        {/* reset icon */}
+        <FontAwesomeIcon icon="redo" />
       </div>
     </div>
   )
