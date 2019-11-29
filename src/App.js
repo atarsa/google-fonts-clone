@@ -1,12 +1,13 @@
 import React from 'react';
 import { library } from '@fortawesome/fontawesome-svg-core'
-import { faCircle, faBorderAll, faList, faRedo } from '@fortawesome/free-solid-svg-icons'
-import './App.css';
+import { faCircle, faBorderAll, faList, faRedo, faPlusCircle } from '@fortawesome/free-solid-svg-icons'
+import './App.scss';
 import Header from './components/Header'
 import FontNav from './components/FontNav'
+import FontCards from './components/FontCards'
 import Footer from './components/Footer'
 
-library.add(faCircle, faBorderAll, faList, faRedo)
+library.add(faCircle, faBorderAll, faList, faRedo, faPlusCircle )
 
 const App = () => {
  return(
@@ -14,7 +15,7 @@ const App = () => {
    <Header />
    <main>
     <FontNav />
-    {/* <FontCards /> */}
+    <FontCards />
    </main>
     <Footer />
    </>
