@@ -1,7 +1,7 @@
 import React from 'react'
 import { FontAwesomeIcon } from '@fortawesome/react-fontawesome'
 
-const FontNav = () => {
+const FontNav = ( {textChange} ) => {
 
   return(
     <div className="nav-container">
@@ -11,6 +11,7 @@ const FontNav = () => {
       />
       <input className="nav-container__input nav-container--type"
         placeholder="Type something"
+        onChange={textChange}
       />
       <select className="nav-container__select">
         <option value="20">20px</option>

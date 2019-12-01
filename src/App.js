@@ -21,13 +21,16 @@ const App = (props) => {
     )
   )
   
+  const handleTextInputChange = (event) => {
+    setFontTextInput(event.target.value)
+  }
   
 
   return(
    <>
    <Header />
    <main>
-    <FontNav />
+    <FontNav textChange={handleTextInputChange} />
     {cardsToShow()}
    </main>
     <Footer />
