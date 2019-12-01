@@ -1,14 +1,10 @@
 import React from 'react'
 import FontCard from './FontCard'
 
-const FontCards = () => {
-  return(
-    <div>
-      <FontCard />
-      <FontCard />
-      <FontCard />
-    </div>
-  )
+const FontCards = (fontCards) => {
+  fontCards.forEach(card => 
+    <FontCard cardInfo={card} />
+    )
 }
 
 

@@ -4,7 +4,7 @@ import { faCircle, faBorderAll, faList, faRedo, faPlusCircle } from '@fortawesom
 import './styles/styles.scss';
 import Header from './components/Header'
 import FontNav from './components/FontNav'
-import FontCards from './components/FontCards'
+// import FontCards from './components/FontCards'
 import Footer from './components/Footer'
 import FontCard from './components/FontCard'
 
@@ -13,24 +13,34 @@ library.add(faCircle, faBorderAll, faList, faRedo, faPlusCircle )
 const App = (props) => {
   const [fontCards, setFontCards] = useState(props.fontCards)
   const [fontTextInput, setFontTextInput] = useState('')
-  
+  const [fontSize, setFontSize] = useState('20px')
  
   const cardsToShow = () => (
+    
     fontCards.map(card => 
-      <FontCard fontInfo={card} text={fontTextInput} />
+      <FontCard fontInfo={card} 
+                text={fontTextInput}
+                fontSize={fontSize}
+                 />
     )
   )
+  
   
   const handleTextInputChange = (event) => {
     setFontTextInput(event.target.value)
   }
   
+  const handleFontSizeChange = (event) => {
+     setFontSize(event.target.value)   
+  }
 
   return(
    <>
    <Header />
    <main>
-    <FontNav textChange={handleTextInputChange} />
+    <FontNav textChange={handleTextInputChange}
+             fontSizeChange={handleFontSizeChange} 
+              />
     {cardsToShow()}
    </main>
     <Footer />
