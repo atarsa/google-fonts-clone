@@ -6,17 +6,14 @@ import FontCard from './FontCard'
 
 describe('<FontCard />', () => {
 
-  const fontInfo = {
-    family: "Roboto",
-    author: "Christian Roberston"
-  }
+  const font = "Roboto"
 
   const text = "Then came the night of the first falling star."
   
   test('renders content when font info is available from user input', () => {
 
       const component = render(
-        <FontCard fontInfo={fontInfo} text={text} />
+        <FontCard font={font} text={text} />
       )      
 
       const textDiv = component.container.querySelector('.fontCard--text')
@@ -25,14 +22,12 @@ describe('<FontCard />', () => {
       const fontNameDiv = component.container.querySelector('.font--name')
       expect(fontNameDiv).toHaveTextContent('Roboto')
 
-      const fontAuthorDiv = component.container.querySelector('.font--author')
-      expect(fontAuthorDiv).toHaveTextContent('Christian Roberston')
   })
 
   test('renders default text when no user input', () => {
 
     const component = render(
-      <FontCard fontInfo={fontInfo} text='' />
+      <FontCard font={font} text='' />
     )
     component.debug()  
     const textDiv = component.container.querySelector('.fontCard--text')
@@ -41,8 +36,7 @@ describe('<FontCard />', () => {
     const fontNameDiv = component.container.querySelector('.font--name')
     expect(fontNameDiv).toHaveTextContent('Roboto')
 
-    const fontAuthorDiv = component.container.querySelector('.font--author')
-    expect(fontAuthorDiv).toHaveTextContent('Christian Roberston')
+    
   })
 
   // test('card\'s content is written in the font specified on the card    ', () => {
