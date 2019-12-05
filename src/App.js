@@ -31,16 +31,7 @@ const App = (props) => {
    ? fontCards
    : filteredFonts
          
-  // load more fonts on page scroll
-  window.addEventListener('scroll',  () => {
-    
-    if (fontCards.length !== 0) {
-      fontService.loadMoreFonts(fontCards)
-    }
-    
-  })
-
-  const cardsToShow = (fonts) => {
+   const cardsToShow = (fonts) => {
     
     return(
     
@@ -52,8 +43,7 @@ const App = (props) => {
                  />
     )
   )}
-  
-  
+    
   const handleTextInputChange = (event) => {
     setFontTextInput(event.target.value)
   }
@@ -69,9 +59,11 @@ const App = (props) => {
       setFiltredFonts(fontCards.filter(name =>{ 
         name = name.toLowerCase()
         return name.includes(input)
-      })
+        })
       )
       setShowAll(false)
+        
+     
     } else {
       setShowAll(true)
     }

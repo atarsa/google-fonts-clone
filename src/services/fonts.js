@@ -8,40 +8,24 @@ const getAll = async () => {
   const response=  await axios.get(baseUrl, {})
   
   const fontFamilies = response.data.items.map(obj => obj.family)
-    loadInitialFonts(fontFamilies)
+  loadInitialFonts(fontFamilies)
   return fontFamilies
   
 }
 
-let index = 0
-let indexEnd = 10 // load 10 most popular fonts
-
+// !Load all fonts 
+// !not the best approach, needs optimisation
 const loadInitialFonts = (fonts) => {
-  
   let fontsNames = ''
-  for (  index; index <= indexEnd; index++){
-    let fontName = fonts[index].split(' ').join('+') 
+  for (let i =0; i < fonts.length; i++){
+    
+    let fontName = fonts[i].split(' ').join('+') 
     fontsNames += `${fontName}|` 
   }
-  
   // create link element and add it to index.html head  
   createLinkElm(fontsNames)
 }
 
-const loadMoreFonts = (fonts) => {
-  
- 
-  let fontsNames = ''
-  
-  for (index; index <= indexEnd; index++){
-    let fontName = fonts[index].split(' ').join('+') 
-    fontsNames += `${fontName}|` 
-  }
-  indexEnd += 3 // load extra 3 fonts 
-  
-  // create link element and add it to index.html head  
-  createLinkElm(fontsNames)
-}
 
 const createLinkElm = (fontsNames) => {
   const baseUrl = "https://fonts.googleapis.com/css?family="
@@ -55,6 +39,5 @@ const createLinkElm = (fontsNames) => {
 
 
 export default {
-  getAll,
-  loadMoreFonts
+  getAll
 }
