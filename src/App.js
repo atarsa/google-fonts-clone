@@ -1,6 +1,7 @@
 import React, { useState, useEffect } from 'react';
 import { library } from '@fortawesome/fontawesome-svg-core'
 import { faCircle, faBorderAll, faList, faRedo, faPlusCircle } from '@fortawesome/free-solid-svg-icons'
+
 import './styles/styles.scss';
 import Header from './components/Header'
 import FontNav from './components/FontNav'
@@ -20,17 +21,29 @@ const App = (props) => {
   useEffect(() => {
     fontService
       .getAll()
-      .then(initialFonts => setFontCards(initialFonts))
+      .then(initialFonts => {
+        setFontCards(initialFonts)})
   }, []) 
 
+         
+  // load more fonts on page scroll
+  window.addEventListener('scroll',  () => {
+    
+    if (fontCards.length !== 0) {
+      fontService.loadMoreFonts(fontCards)
+    }
+    
+  })
+
   const cardsToShow = () => {
-    console.log('fonts to show: ', fontCards)
+    
     return(
     
-    fontCards.map(card => 
-      <FontCard fontInfo={card} 
+    fontCards.map((font, index) => 
+      <FontCard font={font} 
                 text={fontTextInput}
                 fontSize={fontSize}
+                key={index}
                  />
     )
   )}
@@ -46,14 +59,14 @@ const App = (props) => {
 
   return(
    <>
-   <Header />
-   <main>
-    <FontNav textChange={handleTextInputChange}
-             fontSizeChange={handleFontSizeChange} 
-              />
-    {cardsToShow()}
-   </main>
-    <Footer />
+    <Header />
+    <main>
+      <FontNav textChange={handleTextInputChange}
+              fontSizeChange={handleFontSizeChange} 
+                />
+      {cardsToShow()}
+    </main>
+      <Footer />
    </>
  )
 }
