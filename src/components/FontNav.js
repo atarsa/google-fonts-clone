@@ -1,13 +1,14 @@
 import React from 'react'
 import { FontAwesomeIcon } from '@fortawesome/react-fontawesome'
 
-const FontNav = ( {textChange, fontSizeChange} ) => {
+const FontNav = ( {textChange, fontSizeChange, fontSearchChange} ) => {
 
   return(
     <div className="nav-container">
      
       <input className="nav-container__input nav-container--search"
         placeholder="Search fonts"
+        onChange={fontSearchChange}
       />
       <input className="nav-container__input nav-container--type"
         placeholder="Type something"

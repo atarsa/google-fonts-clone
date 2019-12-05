@@ -15,6 +15,8 @@ library.add(faCircle, faBorderAll, faList, faRedo, faPlusCircle )
 
 const App = (props) => {
   const [fontCards, setFontCards] = useState([])
+  const [filteredFonts, setFiltredFonts] = useState([])
+  const [showAll, setShowAll] = useState(true)
   const [fontTextInput, setFontTextInput] = useState('')
   const [fontSize, setFontSize] = useState('20px')
  
@@ -25,6 +27,9 @@ const App = (props) => {
         setFontCards(initialFonts)})
   }, []) 
 
+  const fontsToShow = showAll
+   ? fontCards
+   : filteredFonts
          
   // load more fonts on page scroll
   window.addEventListener('scroll',  () => {
@@ -35,11 +40,11 @@ const App = (props) => {
     
   })
 
-  const cardsToShow = () => {
+  const cardsToShow = (fonts) => {
     
     return(
     
-    fontCards.map((font, index) => 
+    fonts.map((font, index) => 
       <FontCard font={font} 
                 text={fontTextInput}
                 fontSize={fontSize}
@@ -57,14 +62,31 @@ const App = (props) => {
      setFontSize(event.target.value)   
   }
 
+  const handleFontSearchInputChange = (event) => {
+    const input = event.target.value.toLowerCase()
+
+    if (input){
+      setFiltredFonts(fontCards.filter(name =>{ 
+        name = name.toLowerCase()
+        return name.includes(input)
+      })
+      )
+      setShowAll(false)
+    } else {
+      setShowAll(true)
+    }
+    
+  }
+
   return(
    <>
     <Header />
     <main>
       <FontNav textChange={handleTextInputChange}
-              fontSizeChange={handleFontSizeChange} 
+              fontSizeChange={handleFontSizeChange}
+              fontSearchChange={handleFontSearchInputChange} 
                 />
-      {cardsToShow()}
+      {cardsToShow(fontsToShow)}
     </main>
       <Footer />
    </>
