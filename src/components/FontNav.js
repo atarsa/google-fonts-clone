@@ -1,7 +1,7 @@
 import React from 'react'
 import { FontAwesomeIcon } from '@fortawesome/react-fontawesome'
 
-const FontNav = ( {textChange, fontSizeChange, fontSearchChange} ) => {
+const FontNav = ( {textChange, fontSizeChange, fontSearchChange, resetBtnClick } ) => {
 
   return(
     <div className="nav-container">
@@ -29,7 +29,7 @@ const FontNav = ( {textChange, fontSizeChange, fontSearchChange} ) => {
           <FontAwesomeIcon icon="list" />
           <FontAwesomeIcon icon="border-all" />
       </div>
-      <div className="nav-container__reset">
+      <div className="nav-container__reset" onClick={resetBtnClick}>
         <FontAwesomeIcon icon="redo" />
       </div>
     </div>

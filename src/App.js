@@ -62,12 +62,17 @@ const App = (props) => {
         })
       )
       setShowAll(false)
-        
      
     } else {
       setShowAll(true)
     }
-    
+  }
+  
+  const handleResetBtnClick = (e) => {
+    console.log(e.target)
+    setShowAll(true)
+    setFontSize('20px')
+    setFontTextInput('')
   }
 
   return(
@@ -76,7 +81,8 @@ const App = (props) => {
     <main>
       <FontNav textChange={handleTextInputChange}
               fontSizeChange={handleFontSizeChange}
-              fontSearchChange={handleFontSearchInputChange} 
+              fontSearchChange={handleFontSearchInputChange}
+              resetBtnClick={handleResetBtnClick} 
                 />
       {cardsToShow(fontsToShow)}
     </main>
