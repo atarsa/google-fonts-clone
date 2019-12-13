@@ -105,6 +105,41 @@ header {
   }
 }
 
+//  back-to-top btn
+.back-to-top-btn {
+  position: fixed;
+  // don't show on first render
+  display: none;
+  flex-direction: column-reverse;
+  align-items: center;
+  bottom: 2em;
+  right: 1em;
+
+  &__icon {
+    color: $grey;
+    font-size: 2em;
+  }
+
+  &__info {
+    opacity: 0;
+    transform: translate(0, 5px);
+    background: $grey;
+    color: $white;
+    padding: 0.3em 0.5em;
+    margin-bottom: 0.3em;
+    border-radius: 4px;
+    font-size: 0.8em;
+    transition: opacity .1s ease-in, transform .1s ease-in;
+
+  }
+}
+
+.back-to-top-btn:hover .back-to-top-btn__info {
+  opacity: 1;
+  transform: translate(0, -5px);
+}
+
+
 /* footer */
 .credits {
   margin: 1em auto;

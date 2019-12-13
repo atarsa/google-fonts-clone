@@ -1,6 +1,7 @@
 import React, { useState, useEffect } from 'react';
 import { library } from '@fortawesome/fontawesome-svg-core'
-import { faCircle, faBorderAll, faList, faRedo, faPlusCircle } from '@fortawesome/free-solid-svg-icons'
+import { faCircle, faBorderAll, faList, faRedo, faPlusCircle, faArrowCircleUp } from '@fortawesome/free-solid-svg-icons'
+import { FontAwesomeIcon } from '@fortawesome/react-fontawesome'
 
 import './styles/styles.scss';
 import Header from './components/Header'
@@ -12,7 +13,7 @@ import FontCard from './components/FontCard'
 import fontService from './services/fonts'
 
 // add font awsome icons to the 'library' as per docs
-library.add(faCircle, faBorderAll, faList, faRedo, faPlusCircle )
+library.add(faCircle, faBorderAll, faList, faRedo, faPlusCircle, faArrowCircleUp )
 
 const App = (props) => {
   const [fontCards, setFontCards] = useState([])
@@ -89,10 +90,34 @@ const App = (props) => {
               resetBtnClick={handleResetBtnClick} 
                 />
       {cardsToShow(fontsToShow)}
+      <div className="back-to-top-btn" >
+        <FontAwesomeIcon icon="arrow-circle-up" className="back-to-top-btn__icon" />
+        <span className="back-to-top-btn__info">Return to top</span>
+      </div>
+      
     </main>
       <Footer />
    </>
  )
 }
+
+ // window event listeners
+ window.addEventListener('scroll', () => {
+  // get arrow up icon container
+  const arrowUp = document.querySelector('.back-to-top-btn')
+  if (window.pageYOffset > 100){
+    arrowUp.style.display = 'flex'
+    
+    // add click event to the btn if visible
+    arrowUp.addEventListener('click', () => {
+       window.scrollTo(window.pageYOffset, 0)
+    })
+
+
+  } else {
+    arrowUp.style.display = 'none'
+  }
+  
+})
 
 export default App;
