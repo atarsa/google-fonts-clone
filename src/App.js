@@ -11,6 +11,7 @@ import FontCard from './components/FontCard'
 
 import fontService from './services/fonts'
 
+// add font awsome icons to the 'library' as per docs
 library.add(faCircle, faBorderAll, faList, faRedo, faPlusCircle )
 
 const App = (props) => {
@@ -39,7 +40,7 @@ const App = (props) => {
       <FontCard font={font} 
                 text={fontTextInput}
                 fontSize={fontSize}
-                key={index}
+                key={font}
                  />
     )
   )}
@@ -69,10 +70,13 @@ const App = (props) => {
   }
   
   const handleResetBtnClick = (e) => {
-    console.log(e.target)
     setShowAll(true)
     setFontSize('20px')
     setFontTextInput('')
+    // reset FontNav
+    document.querySelector('.nav-container--search').value = ''
+    document.querySelector('.nav-container--type').value = ''
+    document.querySelector('.nav-container__select').value = '20px'
   }
 
   return(
