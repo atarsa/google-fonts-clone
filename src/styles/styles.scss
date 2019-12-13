@@ -1,108 +1,15 @@
 @import "variables.scss";
 
+@import "parts/header";
+@import "parts/links";
+@import "parts/fontCard";
+@import "parts/fontNav";
+@import "parts/footer";
+
+
 body {
   font-family: "Roboto", sans-serif;
   box-sizing: border-box;
-}
-
-/* header */
-header {
-  border-bottom: 1px solid $light-grey;
-  margin: 1em 0;
-  padding: 0 1em;
-  display: flex;
-  justify-content: space-between;
-  color: $grey;
-
-  .brand {
-    align-self: center;
-  }
-
-  ul {
-    list-style: none;
-
-    li {
-      display: inline-block;
-      padding: 0.5em;
-    }
-  }
-}
-
-
-
-/* FontNav */
-.nav-container {
-  display: flex;
-  padding: 1em;
-  margin: 1.5em 0.5em;
-  justify-content: space-around;
-  border: 1px solid $light-grey;
-  border-radius: 35px;
-
-  &__input,
-  &__select,
-  &__toggle-mode,
-  &__toggle-layout {
-    flex-grow: 1;
-  }
-
-  .svg-inline--fa {
-    margin: 0.2em 0.1em;
-  }
-
-  &__input,
-  &__select {
-    border: none;
-    padding: 0 1em;
-  }
-
-  &__input {
-    border-right: 1px solid $light-grey;
-  }
-
-  &__toggle-mode,
-  &__toggle-layout {
-    padding: 0 .5em;
-  }
-
-  .white {
-    color: rgb(255, 255, 255);
-    stroke: black;
-    stroke-width: 10;
-  }
-}
-
-
-/* Font Card */
-.fontCard {
-  box-sizing: border-box;
-  margin: 1em;
-  padding: 1em 0;
-  border-top: 1px solid $grey;
-
-  &__header {
-    display: flex;
-    justify-content: space-between;
-
-
-    .font--name,
-    .font--author {
-      font-size: 0.9rem;
-      padding: 0.25em 0;
-    }
-
-    .font--author {
-      color: $grey;
-    }
-
-    .fa-plus-circle {
-      color: $accent;
-    }
-  }
-
-  &__main {
-    margin: 1em 0;
-  }
 }
 
 //  back-to-top btn
@@ -137,14 +44,4 @@ header {
 .back-to-top-btn:hover .back-to-top-btn__info {
   opacity: 1;
   transform: translate(0, -5px);
-}
-
-
-/* footer */
-.credits {
-  margin: 1em auto;
-  padding: 1em;
-  margin: 0 auto;
-  font-size: .8em;
-  text-align: center;
 }

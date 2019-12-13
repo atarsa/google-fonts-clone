@@ -1,0 +1,31 @@
+.fontCard {
+  box-sizing: border-box;
+  margin: 1em;
+  padding: 1em 0;
+  border-top: 1px solid $grey;
+
+  &__header {
+    display: flex;
+    justify-content: space-between;
+
+
+    .font--name,
+    .font--author {
+      font-size: 0.9rem;
+      padding: 0.25em 0;
+    }
+
+    .font--author {
+      color: $grey;
+    }
+
+    .fa-plus-circle {
+      color: $accent;
+      font-size: 1.2em;
+    }
+  }
+
+  &__main {
+    margin: 1em 0;
+  }
+}

@@ -1,0 +1,40 @@
+.nav-container {
+  display: flex;
+  padding: 1em;
+  margin: 1.5em 0.5em;
+  justify-content: space-around;
+  border: 1px solid $light-grey;
+  border-radius: 35px;
+
+  &__input,
+  &__select,
+  &__toggle-mode,
+  &__toggle-layout {
+    flex-grow: 1;
+  }
+
+  .svg-inline--fa {
+    margin: 0.2em 0.1em;
+  }
+
+  &__input,
+  &__select {
+    border: none;
+    padding: 0 1em;
+  }
+
+  &__input {
+    border-right: 1px solid $light-grey;
+  }
+
+  &__toggle-mode,
+  &__toggle-layout {
+    padding: 0 .5em;
+  }
+
+  .white {
+    color: rgb(255, 255, 255);
+    stroke: black;
+    stroke-width: 10;
+  }
+}

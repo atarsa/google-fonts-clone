@@ -4,13 +4,13 @@ const Header = () => {
   return (
     <header>
       <div className="brand">
-        Google Fonts
+        <a href="#">Favourite Google Fonts</a>
       </div>
       <ul>
-        <li>CATALOG</li>
-        <li>FEATURED</li>
-        <li>ARTICLES</li>
-        <li>ABOUT</li>
+        <li><a href="index.html">CATALOG</a></li>
+        <li><a href="index.html">FEATURED</a></li>
+        <li><a href="index.html">ARTICLES</a></li>
+        <li><a href="index.html">ABOUT</a></li>
       </ul>
     </header>
   )
