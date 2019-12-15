@@ -1,0 +1,14 @@
+main {
+  margin: 1em;
+}
+
+.grid {
+  display: grid;
+  grid-template-columns: repeat(auto-fit, minmax(300px, 1fr));
+  gap: 10px;
+}
+
+.flex {
+  display: flex;
+  flex-direction: column;
+}

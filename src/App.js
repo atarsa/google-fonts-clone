@@ -84,17 +84,22 @@ const App = (props) => {
    <>
     <Header />
     <main>
+      
       <FontNav textChange={handleTextInputChange}
               fontSizeChange={handleFontSizeChange}
               fontSearchChange={handleFontSearchInputChange}
               resetBtnClick={handleResetBtnClick} 
                 />
-      {cardsToShow(fontsToShow)}
-      <div className="back-to-top-btn" >
-        <FontAwesomeIcon icon="arrow-circle-up" className="back-to-top-btn__icon" />
-        <span className="back-to-top-btn__info">Return to top</span>
+
+      <div className="cards-container grid">
+        {/* cards */}
+        {cardsToShow(fontsToShow)}
+        {/* back to top button */}
+        <div className="back-to-top-btn" >
+          <FontAwesomeIcon icon="arrow-circle-up" className="back-to-top-btn__icon" />
+          <span className="back-to-top-btn__info">Return to top</span>
+        </div>
       </div>
-      
     </main>
       <Footer />
    </>

@@ -4,7 +4,7 @@ const Header = () => {
   return (
     <header>
       <div className="brand">
-        <a href="#">Favourite Google Fonts</a>
+        <a href="index.html">Favourite Google Fonts</a>
       </div>
       <ul>
         <li><a href="index.html">CATALOG</a></li>
