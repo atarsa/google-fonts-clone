@@ -26,10 +26,10 @@ const FontNav = ( {textChange, fontSizeChange, fontSearchChange, resetBtnClick, 
         <FontAwesomeIcon icon="circle" className="white" />
       </div>
       <div className="nav-container__toggle-layout" onClick={layoutIconClick}>
-          <div className="list-icon">
+          <div className="list-view-icon">
             <FontAwesomeIcon icon="list" />
           </div>
-          <div className="grid-icon">
+          <div className="grid-view-icon">
             <FontAwesomeIcon icon="border-all" />
           </div>
       </div>    

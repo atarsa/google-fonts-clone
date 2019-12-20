@@ -81,29 +81,28 @@ const App = (props) => {
   }
 
   const handleLayoutIconClick = (e) => {
-    console.log(e.target)
-    const cardsContainer = document.querySelector('.cards-container')
-    
-    if (e.target.classList.contains('fa-border-all') ){
-      console.log('should show grid')
+     if (e.target.classList.contains('fa-border-all') ){
       // Show cards as grid
-      if (cardsContainer.classList.contains('flex')){
-        cardsContainer.classList.remove('flex')
-      }
-      cardsContainer.classList.add('grid')
-      document.querySelector('.grid-icon').style.display = 'none'
-      document.querySelector('.list-icon').style.display = 'block'
-      
+        toggleCardsLayout('grid-view')
+        
     } else if (e.target.classList.contains('fa-list') ){
-      console.log('should show list')
       // Show cards as list
-      if (cardsContainer.classList.contains('grid')){
-        cardsContainer.classList.remove('grid')
-      }
-      cardsContainer.classList.add('flex')
-      document.querySelector('.grid-icon').style.display = 'block'
-      document.querySelector('.list-icon').style.display = 'none'
+      toggleCardsLayout('list-view')
     }
+  }
+
+  const toggleCardsLayout = layoutToShow => {
+    const layoutToHide = layoutToShow === 'grid-view' ? 'list-view' : 'grid-view'
+    const cardsContainer = document.querySelector('.cards-container')
+
+    if (cardsContainer.classList.contains(layoutToHide)){
+      cardsContainer.classList.remove(layoutToHide)
+    }
+    cardsContainer.classList.add(layoutToShow)
+
+    document.querySelector(`.${layoutToShow}-icon`).style.display = 'none'
+    document.querySelector(`.${layoutToHide}-icon`).style.display = 'block'
+
   }
 
   return(
@@ -118,7 +117,7 @@ const App = (props) => {
               layoutIconClick={handleLayoutIconClick} 
                 />
 
-      <div className="cards-container grid">
+      <div className="cards-container grid-view">
         {/* cards */}
         {cardsToShow(fontsToShow)}
         {/* back to top button */}
