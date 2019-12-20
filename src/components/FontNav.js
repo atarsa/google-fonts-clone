@@ -1,7 +1,7 @@
 import React from 'react'
 import { FontAwesomeIcon } from '@fortawesome/react-fontawesome'
 
-const FontNav = ( {textChange, fontSizeChange, fontSearchChange, resetBtnClick } ) => {
+const FontNav = ( {textChange, fontSizeChange, fontSearchChange, resetBtnClick, layoutIconClick } ) => {
 
   return(
     <div className="nav-container">
@@ -25,10 +25,15 @@ const FontNav = ( {textChange, fontSizeChange, fontSearchChange, resetBtnClick }
         <FontAwesomeIcon icon="circle" />
         <FontAwesomeIcon icon="circle" className="white" />
       </div>
-      <div className="nav-container__toggle-layout">
-          <FontAwesomeIcon icon="list" />
-          <FontAwesomeIcon icon="border-all" />
-      </div>
+      <div className="nav-container__toggle-layout" onClick={layoutIconClick}>
+          <div className="list-icon">
+            <FontAwesomeIcon icon="list" />
+          </div>
+          <div className="grid-icon">
+            <FontAwesomeIcon icon="border-all" />
+          </div>
+      </div>    
+    
       <div className="nav-container__reset" onClick={resetBtnClick}>
         <FontAwesomeIcon icon="redo" />
       </div>

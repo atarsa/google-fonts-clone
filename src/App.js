@@ -80,6 +80,32 @@ const App = (props) => {
     document.querySelector('.nav-container__select').value = '20px'
   }
 
+  const handleLayoutIconClick = (e) => {
+    console.log(e.target)
+    const cardsContainer = document.querySelector('.cards-container')
+    
+    if (e.target.classList.contains('fa-border-all') ){
+      console.log('should show grid')
+      // Show cards as grid
+      if (cardsContainer.classList.contains('flex')){
+        cardsContainer.classList.remove('flex')
+      }
+      cardsContainer.classList.add('grid')
+      document.querySelector('.grid-icon').style.display = 'none'
+      document.querySelector('.list-icon').style.display = 'block'
+      
+    } else if (e.target.classList.contains('fa-list') ){
+      console.log('should show list')
+      // Show cards as list
+      if (cardsContainer.classList.contains('grid')){
+        cardsContainer.classList.remove('grid')
+      }
+      cardsContainer.classList.add('flex')
+      document.querySelector('.grid-icon').style.display = 'block'
+      document.querySelector('.list-icon').style.display = 'none'
+    }
+  }
+
   return(
    <>
     <Header />
@@ -88,7 +114,8 @@ const App = (props) => {
       <FontNav textChange={handleTextInputChange}
               fontSizeChange={handleFontSizeChange}
               fontSearchChange={handleFontSearchInputChange}
-              resetBtnClick={handleResetBtnClick} 
+              resetBtnClick={handleResetBtnClick}
+              layoutIconClick={handleLayoutIconClick} 
                 />
 
       <div className="cards-container grid">
