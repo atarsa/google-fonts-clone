@@ -3,6 +3,19 @@ import { FontAwesomeIcon } from '@fortawesome/react-fontawesome'
 
 const FontNav = ( {textChange, fontSizeChange, fontSearchChange, resetBtnClick, layoutIconClick } ) => {
 
+  const handleModeToggleClick = (e) => {
+    const body = document.querySelector('body')
+    // TODO Refactor to use state ?? 
+    if (body.classList.contains('light-mode')){
+      body.classList.remove('light-mode')
+      body.classList.add('dark-mode')
+    } else {
+      body.classList.remove('dark-mode')
+      body.classList.add('light-mode')
+    }
+
+  }
+
   return(
     <div className="nav-container">
      
@@ -22,8 +35,8 @@ const FontNav = ( {textChange, fontSizeChange, fontSearchChange, resetBtnClick, 
         <option value="40px">40px</option>
       </select>
       <div className="nav-container__toggle-mode">
-        <FontAwesomeIcon icon="circle" />
-        <FontAwesomeIcon icon="circle" className="white" />
+        <FontAwesomeIcon icon="circle" onClick={() => handleModeToggleClick()}/>
+  
       </div>
       <div className="nav-container__toggle-layout" onClick={layoutIconClick}>
           <div className="list-view-icon">

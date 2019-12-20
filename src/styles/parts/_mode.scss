@@ -1,0 +1,29 @@
+.dark-mode {
+  background: $dark-grey;
+  color: $white;
+  fill: $white;
+
+  header li a {
+    color: $white;
+  }
+
+  .nav-container__input,
+  .nav-container__select {
+    background: $dark-grey;
+    color: $white;
+  }
+
+  .fa-circle {
+    fill: $white;
+  }
+}
+
+.light-mode {
+  background: white;
+
+  .fa-circle {
+    fill: $white;
+    stroke: black;
+    stroke-width: 10;
+  }
+}

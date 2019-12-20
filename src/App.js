@@ -80,6 +80,7 @@ const App = (props) => {
     document.querySelector('.nav-container__select').value = '20px'
   }
 
+ 
   const handleLayoutIconClick = (e) => {
      if (e.target.classList.contains('fa-border-all') ){
       // Show cards as grid
@@ -106,7 +107,7 @@ const App = (props) => {
   }
 
   return(
-   <>
+   <div className="container">
     <Header />
     <main>
       
@@ -128,7 +129,7 @@ const App = (props) => {
       </div>
     </main>
       <Footer />
-   </>
+   </div>
  )
 }
 

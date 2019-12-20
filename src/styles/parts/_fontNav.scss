@@ -26,16 +26,11 @@
 
   &__input {
     border-right: 1px solid $light-grey;
+
   }
 
   &__toggle-mode,
   &__toggle-layout {
     padding: 0 .5em;
-  }
-
-  .white {
-    color: rgb(255, 255, 255);
-    stroke: black;
-    stroke-width: 10;
   }
 }
