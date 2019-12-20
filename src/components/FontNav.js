@@ -60,7 +60,7 @@ const FontNav = ( {textChange, fontSizeChange, fontSearchChange, resetBtnClick} 
         <option value="40px">40px</option>
       </select>
       <div className="nav-container__toggle-mode">
-        <FontAwesomeIcon icon="circle" onClick={() => handleModeToggleClick()}/>
+        <FontAwesomeIcon icon="fill-drip" onClick={() => handleModeToggleClick()}/>
   
       </div>
       <div className="nav-container__toggle-layout" onClick={(e) => handleLayoutIconClick(e)}>
