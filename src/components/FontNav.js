@@ -1,7 +1,7 @@
 import React from 'react'
 import { FontAwesomeIcon } from '@fortawesome/react-fontawesome'
 
-const FontNav = ( {textChange, fontSizeChange, fontSearchChange, resetBtnClick, layoutIconClick } ) => {
+const FontNav = ( {textChange, fontSizeChange, fontSearchChange, resetBtnClick} ) => {
 
   const handleModeToggleClick = (e) => {
     const body = document.querySelector('body')
@@ -15,6 +15,31 @@ const FontNav = ( {textChange, fontSizeChange, fontSearchChange, resetBtnClick, 
     }
 
   }
+
+  const handleLayoutIconClick = (e) => {
+    if (e.target.classList.contains('fa-border-all') ){
+     // Show cards as grid
+       toggleCardsLayout('grid-view')
+       
+   } else if (e.target.classList.contains('fa-list') ){
+     // Show cards as list
+     toggleCardsLayout('list-view')
+   }
+ }
+
+ const toggleCardsLayout = layoutToShow => {
+   const layoutToHide = layoutToShow === 'grid-view' ? 'list-view' : 'grid-view'
+   const cardsContainer = document.querySelector('.cards-container')
+
+   if (cardsContainer.classList.contains(layoutToHide)){
+     cardsContainer.classList.remove(layoutToHide)
+   }
+   cardsContainer.classList.add(layoutToShow)
+
+   document.querySelector(`.${layoutToShow}-icon`).style.display = 'none'
+   document.querySelector(`.${layoutToHide}-icon`).style.display = 'block'
+
+ }
 
   return(
     <div className="nav-container">
@@ -38,7 +63,7 @@ const FontNav = ( {textChange, fontSizeChange, fontSearchChange, resetBtnClick, 
         <FontAwesomeIcon icon="circle" onClick={() => handleModeToggleClick()}/>
   
       </div>
-      <div className="nav-container__toggle-layout" onClick={layoutIconClick}>
+      <div className="nav-container__toggle-layout" onClick={(e) => handleLayoutIconClick(e)}>
           <div className="list-view-icon">
             <FontAwesomeIcon icon="list" />
           </div>
