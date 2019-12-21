@@ -1,0 +1,52 @@
+.tooltip {
+  opacity: 0;
+  background: $grey;
+  color: $white;
+  padding: 0.3em 0.5em;
+  margin-bottom: 0.3em;
+  border-radius: 4px;
+  font-size: 0.8em;
+  transition: opacity .1s ease-in, transform .1s ease-in;
+}
+
+//  back-to-top btn
+.back-to-top-btn {
+  position: fixed;
+  // don't show on first render
+  display: none;
+  flex-direction: column-reverse;
+  align-items: center;
+  bottom: 2em;
+  right: 1em;
+
+  &__icon {
+    color: $grey;
+    font-size: 2em;
+  }
+
+  &__info {
+    transform: translate(0, 5px);
+  }
+}
+
+// font navbar icons
+.nav-container-icon__info {
+  position: absolute;
+  display: inline-block;
+  transform: translate(-50%, -2em);
+}
+
+// show tooltip on hover
+.back-to-top-btn:hover .tooltip,
+.nav-container-icon:hover .tooltip {
+  opacity: 1;
+
+}
+
+.back-to-top-btn:hover .tooltip {
+  transform: translate(0, -5px);
+}
+
+.nav-container-icon:hover .tooltip {
+  transform: translate(-50%, 2em);
+}

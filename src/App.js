@@ -98,7 +98,7 @@ const App = (props) => {
         {/* back to top button */}
         <div className="back-to-top-btn" >
           <FontAwesomeIcon icon="arrow-circle-up" className="back-to-top-btn__icon" />
-          <span className="back-to-top-btn__info">Return to top</span>
+          <span className="tooltip back-to-top-btn__info">Return to top</span>
         </div>
       </div>
     </main>
