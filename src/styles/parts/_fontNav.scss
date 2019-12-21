@@ -34,3 +34,22 @@
     padding: 0 .5em;
   }
 }
+
+.tooltip {
+  opacity: 0;
+  position: absolute;
+  display: inline-block;
+  transform: translate(-2em, -2em);
+  background: $grey;
+  color: $white;
+  padding: 0.3em 0.5em;
+  margin-bottom: 0.3em;
+  border-radius: 4px;
+  font-size: 0.8em;
+  transition: opacity .1s ease-in, transform .1s ease-in;
+}
+
+.nav-container__icon:hover .tooltip {
+  opacity: 1;
+  transform: translate(-2em, 2em);
+}

@@ -48,10 +48,12 @@ const FontNav = ( {textChange, fontSizeChange, fontSearchChange, resetBtnClick} 
         placeholder="Search fonts"
         onChange={fontSearchChange}
       />
+
       <input className="nav-container__input nav-container--type"
         placeholder="Type something"
         onChange={textChange}
       />
+
       <select className="nav-container__select"
         onChange={fontSizeChange}>
         <option value="20px">20px</option>
@@ -59,21 +61,31 @@ const FontNav = ( {textChange, fontSizeChange, fontSearchChange, resetBtnClick} 
         <option value="32px">32px</option>
         <option value="40px">40px</option>
       </select>
+
       <div className="nav-container__toggle-mode">
-        <FontAwesomeIcon icon="fill-drip" onClick={() => handleModeToggleClick()}/>
-  
+        <div className="nav-container__icon">
+          <FontAwesomeIcon icon="fill-drip" onClick={() => handleModeToggleClick()}/>
+          <span className="tooltip">Change background colour</span>
+        </div>
+        
       </div>
+
       <div className="nav-container__toggle-layout" onClick={(e) => handleLayoutIconClick(e)}>
-          <div className="list-view-icon">
+          <div className="list-view-icon nav-container__icon">
             <FontAwesomeIcon icon="list" />
+            <span className="tooltip">View as a list</span>
           </div>
-          <div className="grid-view-icon">
+          <div className="grid-view-icon nav-container__icon">
             <FontAwesomeIcon icon="border-all" />
+            <span className="tooltip">View as a grid</span>
           </div>
       </div>    
     
       <div className="nav-container__reset" onClick={resetBtnClick}>
-        <FontAwesomeIcon icon="redo" />
+        <div className="nav-container__icon">
+          <FontAwesomeIcon icon="redo" />
+          <span className="tooltip">Reset</span>
+        </div>
       </div>
     </div>
   )
