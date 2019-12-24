@@ -1,15 +1,14 @@
 .nav-container {
   display: flex;
-  padding: 1em;
-  margin: 1.5em 0.5em;
+  padding: 0.5em;
+  margin: 1.5em 1em;
   justify-content: space-around;
   border: 1px solid $light-grey;
   border-radius: 35px;
 
+
   &__input,
-  &__select,
-  &__toggle-mode,
-  &__toggle-layout {
+  &__select {
     flex-grow: 1;
   }
 
@@ -22,15 +21,49 @@
   &__select {
     border: none;
     padding: 0 1em;
+    margin: 0 .5em;
   }
 
   &__input {
     border-right: 1px solid $light-grey;
 
+    &:focus,
+    &:active {
+      outline: none;
+      border-bottom: 2px solid $accent;
+    }
+
   }
 
-  &__toggle-mode,
-  &__toggle-layout {
-    padding: 0 .5em;
+  &__reset {
+    padding-left: 1em;
   }
+
+  // for small screen don't show text input and toggle styles
+  &--type,
+  &__select,
+  &__toggle {
+    display: none;
+  }
+
+
+  @media (min-width: 660px) {
+
+    &--type,
+    &__select,
+    &__toggle {
+      display: flex;
+    }
+
+    &__toggle-mode,
+    &__toggle-layout {
+      padding: 0 .2em;
+    }
+
+    &__select {
+      max-width: 150px;
+    }
+
+  }
+
 }

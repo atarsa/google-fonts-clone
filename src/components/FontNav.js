@@ -61,25 +61,28 @@ const FontNav = ( {textChange, fontSizeChange, fontSearchChange, resetBtnClick} 
         <option value="32px">32px</option>
         <option value="40px">40px</option>
       </select>
-
-      <div className="nav-container__toggle-mode">
-        <div className="nav-container-icon">
-          <FontAwesomeIcon icon="fill-drip" onClick={() => handleModeToggleClick()}/>
-          <span className="tooltip nav-container-icon__info">Change background colour</span>
+      
+      <div className="nav-container__toggle">
+        <div className="nav-container__toggle-mode">
+          <div className="nav-container-icon">
+            <FontAwesomeIcon icon="fill-drip" onClick={() => handleModeToggleClick()}/>
+            <span className="tooltip nav-container-icon__info">Change background colour</span>
+          </div>
+          
         </div>
-        
-      </div>
 
-      <div className="nav-container__toggle-layout" onClick={(e) => handleLayoutIconClick(e)}>
-          <div className="list-view-icon nav-container-icon">
-            <FontAwesomeIcon icon="list" />
-            <span className="tooltip nav-container-icon__info">View as a list</span>
-          </div>
-          <div className="grid-view-icon nav-container-icon">
-            <FontAwesomeIcon icon="border-all" />
-            <span className="tooltip nav-container-icon__info">View as a grid</span>
-          </div>
-      </div>    
+        <div className="nav-container__toggle-layout" onClick={(e) => handleLayoutIconClick(e)}>
+            <div className="list-view-icon nav-container-icon">
+              <FontAwesomeIcon icon="list" />
+              <span className="tooltip nav-container-icon__info">View as a list</span>
+            </div>
+            <div className="grid-view-icon nav-container-icon">
+              <FontAwesomeIcon icon="border-all" />
+              <span className="tooltip nav-container-icon__info">View as a grid</span>
+            </div>
+        </div>    
+      </div>
+      
     
       <div className="nav-container__reset" onClick={resetBtnClick}>
         <div className="nav-container-icon">

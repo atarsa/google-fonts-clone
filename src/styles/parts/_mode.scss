@@ -13,8 +13,10 @@
     color: $white;
   }
 
-  .fa-circle {
-    fill: $white;
+  .fa-circle,
+  .fa-redo,
+  .fa-arrow-circle-up {
+    color: $white;
   }
 }
 

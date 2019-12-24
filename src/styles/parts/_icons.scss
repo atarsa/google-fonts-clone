@@ -32,7 +32,6 @@
 // font navbar icons
 .nav-container-icon__info {
   position: absolute;
-  display: inline-block;
   transform: translate(-50%, -2em);
 }
 
@@ -49,4 +48,9 @@
 
 .nav-container-icon:hover .tooltip {
   transform: translate(-50%, 2em);
+}
+
+// reset icon
+.fa-redo {
+  color: $grey;
 }
