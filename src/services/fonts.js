@@ -1,6 +1,6 @@
 import axios from 'axios'
 
-const API_KEY = 'AIzaSyBgtUnQZV7K1ZhgA3l4C9N523JitFrALoM' 
+const API_KEY = process.env.REACT_APP_API_KEY 
 const baseUrl = `https://www.googleapis.com/webfonts/v1/webfonts?sort=popularity&key=${API_KEY}`
 
 
