@@ -6,6 +6,7 @@
   padding: 1em 0;
   border-top: 1px solid $grey;
 
+
   &__header {
     display: flex;
     justify-content: space-between;
@@ -29,5 +30,9 @@
 
   &__main {
     margin: 1em 0;
+  }
+
+  &--text {
+    word-break: break-all;
   }
 }
