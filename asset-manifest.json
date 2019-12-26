@@ -1,6 +1,6 @@
 {
   "files": {
-    "main.css": "/google-fonts-clone/static/css/main.b94d479e.chunk.css",
+    "main.css": "/google-fonts-clone/static/css/main.8a23a0b9.chunk.css",
     "main.js": "/google-fonts-clone/static/js/main.50eca229.chunk.js",
     "main.js.map": "/google-fonts-clone/static/js/main.50eca229.chunk.js.map",
     "runtime-main.js": "/google-fonts-clone/static/js/runtime-main.dc0a1bbc.js",
@@ -8,15 +8,15 @@
     "static/js/2.63be3420.chunk.js": "/google-fonts-clone/static/js/2.63be3420.chunk.js",
     "static/js/2.63be3420.chunk.js.map": "/google-fonts-clone/static/js/2.63be3420.chunk.js.map",
     "index.html": "/google-fonts-clone/index.html",
-    "precache-manifest.3351c08051586cefcecbbd86f757485a.js": "/google-fonts-clone/precache-manifest.3351c08051586cefcecbbd86f757485a.js",
+    "precache-manifest.5f5d033bc279884180801a73e29a8d36.js": "/google-fonts-clone/precache-manifest.5f5d033bc279884180801a73e29a8d36.js",
     "service-worker.js": "/google-fonts-clone/service-worker.js",
-    "static/css/main.b94d479e.chunk.css.map": "/google-fonts-clone/static/css/main.b94d479e.chunk.css.map",
+    "static/css/main.8a23a0b9.chunk.css.map": "/google-fonts-clone/static/css/main.8a23a0b9.chunk.css.map",
     "static/js/2.63be3420.chunk.js.LICENSE": "/google-fonts-clone/static/js/2.63be3420.chunk.js.LICENSE"
   },
   "entrypoints": [
     "static/js/runtime-main.dc0a1bbc.js",
     "static/js/2.63be3420.chunk.js",
-    "static/css/main.b94d479e.chunk.css",
+    "static/css/main.8a23a0b9.chunk.css",
     "static/js/main.50eca229.chunk.js"
   ]
 }
