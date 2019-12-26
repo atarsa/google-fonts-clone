@@ -1,6 +1,6 @@
 # Favourite fonts - Google Fonts website clone
 
-A Front-End App that fetches fonts from [Google API](https://developers.google.com/fonts/docs/getting_started) and displays them by popularity. The live version can be find [here](link_here).
+A Front-End App that fetches fonts from [Google API](https://developers.google.com/fonts/docs/getting_started) and displays them by popularity. The live version can be find [here](https://atarsa.github.io/google-fonts-clone/).
 
 ### Features:
 - [x] searching for a specific font, 
@@ -14,7 +14,7 @@ The app is fully responsive, with mobile first approach.
 
 #### Running this project locally
 ##### Live version:
-[Favourite fonts](link_here)
+[Favourite fonts](https://atarsa.github.io/google-fonts-clone/)
 
 ##### From the repo:
 1. Clone this project locally
