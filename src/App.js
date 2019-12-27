@@ -1,6 +1,6 @@
 import React, { useState, useEffect } from 'react';
 import { library } from '@fortawesome/fontawesome-svg-core'
-import { faFillDrip, faBorderAll, faList, faRedo, faPlusCircle, faArrowCircleUp } from '@fortawesome/free-solid-svg-icons'
+import { faFillDrip, faBorderAll, faList, faRedo, faPlusCircle, faArrowCircleUp, faBars } from '@fortawesome/free-solid-svg-icons'
 import { FontAwesomeIcon } from '@fortawesome/react-fontawesome'
 
 import './styles/styles.scss';
@@ -13,7 +13,7 @@ import FontCard from './components/FontCard'
 import fontService from './services/fonts'
 
 // add font awsome icons to the 'library' as per docs
-library.add(faFillDrip, faBorderAll, faList, faRedo, faPlusCircle, faArrowCircleUp )
+library.add(faFillDrip, faBorderAll, faList, faRedo, faPlusCircle, faArrowCircleUp, faBars )
 
 const App = (props) => {
   const [fontCards, setFontCards] = useState([])
