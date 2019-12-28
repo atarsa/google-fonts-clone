@@ -1,5 +1,6 @@
 import axios from 'axios'
 
+
 const API_KEY = process.env.REACT_APP_API_KEY 
 const baseUrl = `https://www.googleapis.com/webfonts/v1/webfonts?sort=popularity&key=${API_KEY}`
 
@@ -7,35 +8,38 @@ const baseUrl = `https://www.googleapis.com/webfonts/v1/webfonts?sort=popularity
 const getAll = async () => {
   const response=  await axios.get(baseUrl, {})
   
+  console.log('All fonts ', response.data);
+  // create FontFace for each font from API
+  createFontFaceObjs(response.data.items)
+  
+  // get all font families names
   const fontFamilies = response.data.items.map(obj => obj.family)
-  loadInitialFonts(fontFamilies)
-  return fontFamilies
-  
+  return fontFamilies  
 }
 
-// !Load all fonts 
-// !not the best approach, needs optimisation
-const loadInitialFonts = (fonts) => {
-  let fontsNames = ''
-  for (let i =0; i < fonts.length; i++){
+// fonts is as an array of font objects 
+const createFontFaceObjs = (fonts) => {
+  fonts.forEach(fontObj => {
     
-    let fontName = fonts[i].split(' ').join('+') 
-    fontsNames += `${fontName}|` 
+    // get font url
+    // not all fonts have regular style
+    // so in that case get url of the first font style available
+    let fontUrl = fontObj.files.regular ? fontObj.files.regular : fontObj.files[Object.keys(fontObj.files)[0]]
+    
+    // create new style element with fontface declaration
+    let newStyle = document.createElement('style');
+    newStyle.appendChild(document.createTextNode(`
+      @font-face {
+          font-family: "${fontObj.family}";
+          src: local("${fontObj.family}"),
+          url(${fontUrl}) ;
+        }
+       `
+      ));
+
+    document.head.appendChild(newStyle);
   }
-  // create link element and add it to index.html head  
-  createLinkElm(fontsNames)
-}
-
-
-const createLinkElm = (fontsNames) => {
-  const baseUrl = "https://fonts.googleapis.com/css?family="
-  
-  const link = document.createElement('link')
-  link.setAttribute('rel', 'stylesheet')
-  link.type = 'text/css'
-  link.href = baseUrl + fontsNames
-  document.head.appendChild(link)
-}
+)}
 
 
 export default {
