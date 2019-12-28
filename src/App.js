@@ -6,7 +6,6 @@ import { FontAwesomeIcon } from '@fortawesome/react-fontawesome'
 import './styles/styles.scss';
 import Header from './components/Header'
 import FontNav from './components/FontNav'
-// import FontCards from './components/FontCards'
 import Footer from './components/Footer'
 import FontCard from './components/FontCard'
 
@@ -29,6 +28,7 @@ const App = (props) => {
         setFontCards(initialFonts)})
   }, []) 
 
+  
   const fontsToShow = showAll
    ? fontCards
    : filteredFonts

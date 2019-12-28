@@ -11,14 +11,9 @@
     justify-content: space-between;
 
 
-    .font--name,
-    .font--author {
+    .font--name {
       font-size: 0.9rem;
       padding: 0.25em 0;
-    }
-
-    .font--author {
-      color: $grey;
     }
 
     .fa-plus-circle {
