@@ -27,19 +27,42 @@ const createFontFaceObjs = (fonts) => {
     // so in that case get url of the first font style available
     let fontUrl = fontObj.files.regular ? fontObj.files.regular : fontObj.files[Object.keys(fontObj.files)[0]]
     
-    let newFont = new FontFace(fontObj.family, `url(${fontUrl})`)
-    
-    newFont.load().then(loadedFont => {
-      console.log('loaded font ', loadedFont);
-      document.fonts.add(loadedFont)
-    }).catch(error => {
-      console.log(error)
-    });
+    // create new style element with fontface declaration
+    let newStyle = document.createElement('style');
+    newStyle.appendChild(document.createTextNode(`
+      @font-face {
+          font-family: "${fontObj.family}";
+          src: local("${fontObj.family}"),
+          url(${fontUrl}) ;
+        }
+       `
+      ));
 
+    document.head.appendChild(newStyle);
   }
 )}
 
+const loadFonts = fontFamilies => {
+  let observers = [];
+
+  fontFamilies.forEach(family => {
+    let obs = new FontFaceObserver(family)
+    observers.push(obs.load())
+  })
+
+  Promise.all(observers)
+    .then(function(fonts) {
+      fonts.forEach(function(font) {
+        console.log(font.family + ' loaded');
+
+      });
+    })
+    .catch(function(err, font) {
+      console.warn('Some critical font are not available:', err);
+    });
+}
 
 export default {
-  getAll
+  getAll, 
+  loadFonts
 }

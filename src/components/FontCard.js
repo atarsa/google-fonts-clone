@@ -9,7 +9,7 @@ const FontCard = ( {font, text, fontSize} ) => {
   // add font styles
   const textStyle = {
     fontSize: fontSize,
-    fontFamily: font
+    fontFamily: `"${font}"`
   }
 
   return(
