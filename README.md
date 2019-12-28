@@ -25,14 +25,13 @@ The app is fully responsive, with mobile first approach.
 5. Run `npm start` to run local server
 6. The app should be live on your local server now!
 
-### Known Issues:
-- the app is slow as it's fetching all fonts on first loading. 
 
 ### Dev dependencies
-- React
-- Babel
-- Webpack
+- [React](https://reactjs.org/)
+- [React-lazyload](https://github.com/twobin/react-lazyload)
+- [Babel](https://babeljs.io/)
+- [Webpack](https://webpack.js.org/)
 - Sass
-- FontAwsome
+- [React-FontAwsome](https://github.com/FortAwesome/react-fontawesome)
 - ESLint
 
