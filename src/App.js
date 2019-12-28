@@ -2,11 +2,13 @@ import React, { useState, useEffect } from 'react';
 import { library } from '@fortawesome/fontawesome-svg-core'
 import { faFillDrip, faBorderAll, faList, faRedo, faPlusCircle, faArrowCircleUp, faBars } from '@fortawesome/free-solid-svg-icons'
 import { FontAwesomeIcon } from '@fortawesome/react-fontawesome'
+import LazyLoad from 'react-lazyload'
 
 import './styles/styles.scss';
 import Header from './components/Header'
 import FontNav from './components/FontNav'
 import Footer from './components/Footer'
+import LoadingCard from './components/LoadingCard'
 import FontCard from './components/FontCard'
 
 import fontService from './services/fonts'
@@ -29,20 +31,27 @@ const App = (props) => {
   }, []) 
 
   
+
   const fontsToShow = showAll
    ? fontCards
    : filteredFonts
-         
-   const cardsToShow = (fonts) => {
+  
+
+ 
+  const cardsToShow = (fonts) => {
     
     return(
     
-    fonts.map((font, index) => 
-      <FontCard font={font} 
-                text={fontTextInput}
-                fontSize={fontSize}
-                key={font}
-                 />
+    fonts.map((font) => 
+      <LazyLoad key={font} placeholder={<LoadingCard font={font} />}>
+
+        <FontCard font={font} 
+                  text={fontTextInput}
+                  fontSize={fontSize}
+                  key={font}
+         />
+      </LazyLoad>
+      
     )
   )}
     
@@ -80,7 +89,7 @@ const App = (props) => {
     document.querySelector('.nav-container__select').value = '20px'
   }
 
- 
+  
   return(
    <div className="container">
     <Header />
