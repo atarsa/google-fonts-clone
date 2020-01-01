@@ -26,6 +26,10 @@ const createFontFaceObjs = (fonts) => {
     // so in that case get url of the first font style available
     let fontUrl = fontObj.files.regular ? fontObj.files.regular : fontObj.files[Object.keys(fontObj.files)[0]]
     
+    // font url starts with 'http' which leads to "Blocked loading mixed active content" error
+    // replace 'http' with 'https'
+    fontUrl = fontUrl.replace('http', 'https')
+    
     // create new style element with fontface declaration
     let newStyle = document.createElement('style');
     newStyle.appendChild(document.createTextNode(`
