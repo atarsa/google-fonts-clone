@@ -39,7 +39,10 @@ const App = (props) => {
   }, []) 
 
   // TODO get favourites fonts from local storage
+  useEffect(() => {
+    setFavouritedFonts( fontService.getFontsFromStorage() )
 
+  }, [])
     
   // set fonts to show depending on pathname
   let fontsToShow = []
@@ -76,8 +79,7 @@ const App = (props) => {
   const handlePlusIconClick = (font) =>{
          
     setFavouritedFonts(favouritedFonts => favouritedFonts.concat(font))
-    console.log(favouritedFonts);
-    // TODO: add to local storage
+    fontService.addFontToStorage(font)
     // TODO: show notification
   }
 
