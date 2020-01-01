@@ -1,7 +1,8 @@
 import React, { useState, useEffect } from 'react';
 import { 
-  BrowserRouter as Router,
-  Route
+  Route,
+  Switch,
+  useLocation
 } from 'react-router-dom'
 import { library } from '@fortawesome/fontawesome-svg-core'
 import { faFillDrip, faBorderAll, faList, faRedo, faPlusCircle, faArrowCircleUp, faBars } from '@fortawesome/free-solid-svg-icons'
@@ -22,8 +23,10 @@ import fontService from './services/fonts'
 library.add(faFillDrip, faBorderAll, faList, faRedo, faPlusCircle, faArrowCircleUp, faBars )
 
 const App = (props) => {
+  let location = useLocation()
   const [fontCards, setFontCards] = useState([])
   const [filteredFonts, setFiltredFonts] = useState([])
+  const [favouritedFonts, setFavouritedFonts] = useState([])
   const [showAll, setShowAll] = useState(true)
   const [fontTextInput, setFontTextInput] = useState('')
   const [fontSize, setFontSize] = useState('20px')
@@ -35,14 +38,22 @@ const App = (props) => {
         setFontCards(initialFonts)})
   }, []) 
 
-  
+  // TODO get favourites fonts from local storage
 
-  const fontsToShow = showAll
-   ? fontCards
-   : filteredFonts
+    
+  // set fonts to show depending on pathname
+  let fontsToShow = []
+  if (location.pathname === '/'){
+   fontsToShow = showAll
+      ? fontCards
+      : filteredFonts
+  } else if (location.pathname === '/favourites'){
+    fontsToShow = showAll
+      ? favouritedFonts
+      : filteredFonts
+  }
   
-
- 
+   
   const cardsToShow = (fonts) => {
     
     return(
@@ -54,12 +65,22 @@ const App = (props) => {
                   text={fontTextInput}
                   fontSize={fontSize}
                   key={font}
+                  handlePlusIconClick={handlePlusIconClick}
          />
       </LazyLoad>
       
     )
   )}
-    
+  
+  // Add font to favourites
+  const handlePlusIconClick = (font) =>{
+         
+    setFavouritedFonts(favouritedFonts => favouritedFonts.concat(font))
+    console.log(favouritedFonts);
+    // TODO: add to local storage
+    // TODO: show notification
+  }
+
   const handleTextInputChange = (event) => {
     setFontTextInput(event.target.value)
   }
@@ -70,9 +91,17 @@ const App = (props) => {
 
   const handleFontSearchInputChange = (event) => {
     const input = event.target.value.toLowerCase()
+    
+    // sets fonts to filter depending on pathname
+    let fontsToFilter = []
+    if (location.pathname === '/'){
+      fontsToFilter = fontCards
+     } else if (location.pathname === '/favourites'){
+       fontsToFilter = favouritedFonts
+     }
 
     if (input){
-      setFiltredFonts(fontCards.filter(name =>{ 
+      setFiltredFonts(fontsToFilter.filter(name =>{ 
         name = name.toLowerCase()
         return name.includes(input)
         })
@@ -97,37 +126,44 @@ const App = (props) => {
   
   return(
    <div className="container">
-     <Router>
-     <Header />
-     <main>
-      
-      <FontNav textChange={handleTextInputChange}
-              fontSizeChange={handleFontSizeChange}
-              fontSearchChange={handleFontSearchInputChange}
-              resetBtnClick={handleResetBtnClick}
-      />
-      <Route exact path="/" render={() => (
-        <div className="cards-container grid-view">
-          {/* cards */}
-          {cardsToShow(fontsToShow)}
+     
+      <Header />
+      <main>
+        
+        <FontNav textChange={handleTextInputChange}
+                fontSizeChange={handleFontSizeChange}
+                fontSearchChange={handleFontSearchInputChange}
+                resetBtnClick={handleResetBtnClick}
+        />
+        <Switch>
+          <Route exact path="/">
+              <div className="cards-container grid-view">
+                {/* cards */}
+                {cardsToShow(fontsToShow)}
+              </div>
+            </Route >
+          <Route path="/favourites" >
+              <div className="cards-container grid-view">
+                {/* favourite font cards */}
+                {cardsToShow(fontsToShow)}
+              </div>
+          </Route>
+        
+          <Route path="/about" >
+            <About />
+          </Route> 
+
+        </Switch>
+
+        {/* back to top button */}
+        <div className="back-to-top-btn" >
+            <FontAwesomeIcon icon="arrow-circle-up" className="back-to-top-btn__icon" />
+            <span className="tooltip back-to-top-btn__info">Return to top</span>
         </div>
-      )}/>
-      
-      <Route path="/favourites" render={() => (
-        <div>Placeholder for favourites</div>
-      )}/>
-
-      {/* back to top button */}
-      <div className="back-to-top-btn" >
-          <FontAwesomeIcon icon="arrow-circle-up" className="back-to-top-btn__icon" />
-          <span className="tooltip back-to-top-btn__info">Return to top</span>
-       </div>
-
-      <Route path="/about" render={() => <About /> }/>
-    </main>
-     </Router>
+      </main>
     
-      <Footer />
+    
+    <Footer />
    </div>
  )
 }

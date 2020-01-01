@@ -6,7 +6,7 @@ const Header = () => {
   return (
     <header>
       <div className="brand">
-        <a href="index.html">Favourite Google Fonts</a>
+        <Link to="/">Favourite Google Fonts</Link>
       </div>
       {/* Input to toggle menu for small devices */}
       <input id="toggle" type="checkbox" />
