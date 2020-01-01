@@ -17,7 +17,11 @@ const FontCard = ( {font, text, fontSize, handlePlusIconClick} ) => {
     <div className="fontCard">
       <div className="fontCard__header">
         <div className="font--name">{font}</div>
-        <FontAwesomeIcon icon="plus-circle" onClick={() => handlePlusIconClick(font)} />
+        <div className="fontCard-icon">
+          <FontAwesomeIcon icon="plus-circle" onClick={() => handlePlusIconClick(font)} />
+          <span className="tooltip fontCard-icon__info">Add font to favourites</span>
+        </div>
+        
       </div>
       <div className="fontCard__main">
         <div className="fontCard--text" style={textStyle}>
