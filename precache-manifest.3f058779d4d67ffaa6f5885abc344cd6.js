@@ -1,10 +1,10 @@
 self.__precacheManifest = (self.__precacheManifest || []).concat([
   {
-    "revision": "580060067e8ea618e9c56ceb758b326a",
+    "revision": "21bc191a87e465efe88e4633df00d4dc",
     "url": "/google-fonts-clone/index.html"
   },
   {
-    "revision": "945a69cfc4941d683ebf",
+    "revision": "8063481bb358d0dd66df",
     "url": "/google-fonts-clone/static/css/main.80c2acd1.chunk.css"
   },
   {
@@ -16,8 +16,8 @@ self.__precacheManifest = (self.__precacheManifest || []).concat([
     "url": "/google-fonts-clone/static/js/2.2b10cc29.chunk.js.LICENSE"
   },
   {
-    "revision": "945a69cfc4941d683ebf",
-    "url": "/google-fonts-clone/static/js/main.bcfcbf0d.chunk.js"
+    "revision": "8063481bb358d0dd66df",
+    "url": "/google-fonts-clone/static/js/main.ea02bf0a.chunk.js"
   },
   {
     "revision": "15dad2810c0878dfcb71",
