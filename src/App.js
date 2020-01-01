@@ -1,4 +1,8 @@
 import React, { useState, useEffect } from 'react';
+import { 
+  BrowserRouter as Router,
+  Route
+} from 'react-router-dom'
 import { library } from '@fortawesome/fontawesome-svg-core'
 import { faFillDrip, faBorderAll, faList, faRedo, faPlusCircle, faArrowCircleUp, faBars } from '@fortawesome/free-solid-svg-icons'
 import { FontAwesomeIcon } from '@fortawesome/react-fontawesome'
@@ -10,6 +14,7 @@ import FontNav from './components/FontNav'
 import Footer from './components/Footer'
 import LoadingCard from './components/LoadingCard'
 import FontCard from './components/FontCard'
+import About from './components/About'
 
 import fontService from './services/fonts'
 
@@ -92,25 +97,36 @@ const App = (props) => {
   
   return(
    <div className="container">
-    <Header />
-    <main>
+     <Router>
+     <Header />
+     <main>
       
       <FontNav textChange={handleTextInputChange}
               fontSizeChange={handleFontSizeChange}
               fontSearchChange={handleFontSearchInputChange}
               resetBtnClick={handleResetBtnClick}
       />
+      <Route exact path="/" render={() => (
+        <div className="cards-container grid-view">
+          {/* cards */}
+          {cardsToShow(fontsToShow)}
+        </div>
+      )}/>
+      
+      <Route path="/favourites" render={() => (
+        <div>Placeholder for favourites</div>
+      )}/>
 
-      <div className="cards-container grid-view">
-        {/* cards */}
-        {cardsToShow(fontsToShow)}
-        {/* back to top button */}
-        <div className="back-to-top-btn" >
+      {/* back to top button */}
+      <div className="back-to-top-btn" >
           <FontAwesomeIcon icon="arrow-circle-up" className="back-to-top-btn__icon" />
           <span className="tooltip back-to-top-btn__info">Return to top</span>
-        </div>
-      </div>
+       </div>
+
+      <Route path="/about" render={() => <About /> }/>
     </main>
+     </Router>
+    
       <Footer />
    </div>
  )

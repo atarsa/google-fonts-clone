@@ -1,4 +1,5 @@
 import React from 'react'
+import { Link } from 'react-router-dom'
 import { FontAwesomeIcon } from '@fortawesome/react-fontawesome'
 
 const Header = () => {
@@ -15,10 +16,10 @@ const Header = () => {
       
       <nav className="nav">
         <ul>
-          <li><a href="index.html">CATALOG</a></li>
-          <li><a href="index.html">FEATURED</a></li>
-          <li><a href="index.html">ARTICLES</a></li>
-          <li><a href="index.html">ABOUT</a></li>
+          <li><Link to="/"> CATALOG </Link></li>
+          <li><Link to="/favourites"> FAVOURITES </Link></li>
+          
+          <li><Link to="/about"> ABOUT </Link></li>
         </ul>
       </nav>
       
