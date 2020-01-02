@@ -16,6 +16,7 @@ import Footer from './components/Footer'
 import LoadingCard from './components/LoadingCard'
 import FontCard from './components/FontCard'
 import About from './components/About'
+import Notification from './components/Notification'
 
 import fontService from './services/fonts'
 
@@ -30,6 +31,7 @@ const App = (props) => {
   const [showAll, setShowAll] = useState(true)
   const [fontTextInput, setFontTextInput] = useState('')
   const [fontSize, setFontSize] = useState('20px')
+  const [notification, setNotification] = useState('')
  
   useEffect(() => {
     fontService
@@ -77,14 +79,17 @@ const App = (props) => {
   )}
   
   // Add font to favourites
-  const handlePlusIconClick = (font) =>{
-    // TODO: check if font already in favourites    
-    setFavouritedFonts(favouritedFonts => favouritedFonts.concat(font))
-    fontService.addFontToStorage(font)
-    // TODO: show notification
-
-    // TODO remove click icon ?? 
-    // or change color and make unclickible
+  const handlePlusIconClick = ( font ) =>{
+    // TODO: check if font already in favourites
+    if (favouritedFonts.includes(font)){
+          
+      showNotification(`${font} font already in favourites!`)
+    } else {
+      
+      setFavouritedFonts(favouritedFonts => favouritedFonts.concat(font))
+      fontService.addFontToStorage(font)
+      showNotification(`${font} font added to favourites!`)
+    }   
   }
 
   const handleDeleteIconClick = (font) => {
@@ -99,7 +104,7 @@ const App = (props) => {
     setFavouritedFonts(array)
     
     fontService.removeFontFromStorage(font)
-    // TODO show notification
+    showNotification(`${font} font deleted from favourites!`)
   }
   const handleTextInputChange = (event) => {
     setFontTextInput(event.target.value)
@@ -143,7 +148,13 @@ const App = (props) => {
     document.querySelector('.nav-container__select').value = '20px'
   }
 
-  
+  const showNotification = (msg) => {
+    setNotification(msg)
+    setTimeout(()=> {
+        setNotification('')
+      }, 5000) 
+  }
+
   return(
    <div className="container">
      
@@ -155,16 +166,15 @@ const App = (props) => {
                 fontSearchChange={handleFontSearchInputChange}
                 resetBtnClick={handleResetBtnClick}
         />
+        <Notification notification={notification} />
         <Switch>
           <Route exact path="/">
               <div className="cards-container grid-view catalog-view">
-                {/* cards */}
                 {cardsToShow(fontsToShow, 'catalog')}
               </div>
             </Route >
           <Route path="/favourites" >
               <div className="cards-container grid-view favourites-view">
-                {/* favourite font cards */}
                 {cardsToShow(fontsToShow, 'favourites')}
               </div>
           </Route>
