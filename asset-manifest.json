@@ -1,22 +1,22 @@
 {
   "files": {
-    "main.css": "/google-fonts-clone/static/css/main.80c2acd1.chunk.css",
-    "main.js": "/google-fonts-clone/static/js/main.ea02bf0a.chunk.js",
-    "main.js.map": "/google-fonts-clone/static/js/main.ea02bf0a.chunk.js.map",
+    "main.css": "/google-fonts-clone/static/css/main.290d2f82.chunk.css",
+    "main.js": "/google-fonts-clone/static/js/main.b2498f03.chunk.js",
+    "main.js.map": "/google-fonts-clone/static/js/main.b2498f03.chunk.js.map",
     "runtime-main.js": "/google-fonts-clone/static/js/runtime-main.dc0a1bbc.js",
     "runtime-main.js.map": "/google-fonts-clone/static/js/runtime-main.dc0a1bbc.js.map",
-    "static/js/2.2b10cc29.chunk.js": "/google-fonts-clone/static/js/2.2b10cc29.chunk.js",
-    "static/js/2.2b10cc29.chunk.js.map": "/google-fonts-clone/static/js/2.2b10cc29.chunk.js.map",
+    "static/js/2.16b68c0d.chunk.js": "/google-fonts-clone/static/js/2.16b68c0d.chunk.js",
+    "static/js/2.16b68c0d.chunk.js.map": "/google-fonts-clone/static/js/2.16b68c0d.chunk.js.map",
     "index.html": "/google-fonts-clone/index.html",
-    "precache-manifest.3f058779d4d67ffaa6f5885abc344cd6.js": "/google-fonts-clone/precache-manifest.3f058779d4d67ffaa6f5885abc344cd6.js",
+    "precache-manifest.a19a9a9bb6f452697e4c2cb3313b9000.js": "/google-fonts-clone/precache-manifest.a19a9a9bb6f452697e4c2cb3313b9000.js",
     "service-worker.js": "/google-fonts-clone/service-worker.js",
-    "static/css/main.80c2acd1.chunk.css.map": "/google-fonts-clone/static/css/main.80c2acd1.chunk.css.map",
-    "static/js/2.2b10cc29.chunk.js.LICENSE": "/google-fonts-clone/static/js/2.2b10cc29.chunk.js.LICENSE"
+    "static/css/main.290d2f82.chunk.css.map": "/google-fonts-clone/static/css/main.290d2f82.chunk.css.map",
+    "static/js/2.16b68c0d.chunk.js.LICENSE": "/google-fonts-clone/static/js/2.16b68c0d.chunk.js.LICENSE"
   },
   "entrypoints": [
     "static/js/runtime-main.dc0a1bbc.js",
-    "static/js/2.2b10cc29.chunk.js",
-    "static/css/main.80c2acd1.chunk.css",
-    "static/js/main.ea02bf0a.chunk.js"
+    "static/js/2.16b68c0d.chunk.js",
+    "static/css/main.290d2f82.chunk.css",
+    "static/js/main.b2498f03.chunk.js"
   ]
 }
