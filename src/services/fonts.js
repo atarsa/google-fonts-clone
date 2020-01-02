@@ -69,13 +69,26 @@ const getFontsFromStorage = () => {
   if (localStorage.getItem('favFonts') === null){
     favFonts = [];
   } else {   
-    favFonts = JSON.parse(localStorage.getItem('favFonts'));
+    favFonts = JSON.parse(localStorage.getItem('favFonts'))
   }
   return favFonts
+}
+
+const removeFontFromStorage = (font) => {
+  let favFonts = JSON.parse(localStorage.getItem('favFonts'))
+
+  favFonts.forEach((favFont, index) => {
+    if (favFont === font){
+      favFonts.splice(index, 1)
+    }
+  })
+
+  localStorage.setItem('favFonts', JSON.stringify(favFonts))
 }
 
 export default {
   getAll,
   addFontToStorage,
-  getFontsFromStorage
+  getFontsFromStorage,
+  removeFontFromStorage
 }

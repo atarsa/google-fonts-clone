@@ -5,7 +5,7 @@ import {
   useLocation
 } from 'react-router-dom'
 import { library } from '@fortawesome/fontawesome-svg-core'
-import { faFillDrip, faBorderAll, faList, faRedo, faPlusCircle, faArrowCircleUp, faBars } from '@fortawesome/free-solid-svg-icons'
+import { faFillDrip, faBorderAll, faList, faRedo, faPlusCircle, faArrowCircleUp, faBars, faTrashAlt } from '@fortawesome/free-solid-svg-icons'
 import { FontAwesomeIcon } from '@fortawesome/react-fontawesome'
 import LazyLoad from 'react-lazyload'
 
@@ -20,7 +20,7 @@ import About from './components/About'
 import fontService from './services/fonts'
 
 // add font awsome icons to the 'library' as per docs
-library.add(faFillDrip, faBorderAll, faList, faRedo, faPlusCircle, faArrowCircleUp, faBars )
+library.add(faFillDrip, faBorderAll, faList, faRedo, faPlusCircle, faArrowCircleUp, faBars, faTrashAlt )
 
 const App = (props) => {
   let location = useLocation()
@@ -38,10 +38,9 @@ const App = (props) => {
         setFontCards(initialFonts)})
   }, []) 
 
-  // TODO get favourites fonts from local storage
+  // get favourites fonts from local storage
   useEffect(() => {
     setFavouritedFonts( fontService.getFontsFromStorage() )
-
   }, [])
     
   // set fonts to show depending on pathname
@@ -69,6 +68,8 @@ const App = (props) => {
                   fontSize={fontSize}
                   key={font}
                   handlePlusIconClick={handlePlusIconClick}
+                  handleDeleteIconClick={handleDeleteIconClick}
+                  
          />
       </LazyLoad>
       
@@ -77,12 +78,29 @@ const App = (props) => {
   
   // Add font to favourites
   const handlePlusIconClick = (font) =>{
-         
+    // TODO: check if font already in favourites    
     setFavouritedFonts(favouritedFonts => favouritedFonts.concat(font))
     fontService.addFontToStorage(font)
     // TODO: show notification
+
+    // TODO remove click icon ?? 
+    // or change color and make unclickible
   }
 
+  const handleDeleteIconClick = (font) => {
+    let array = [...favouritedFonts]
+    
+    array.forEach((favFont, index) => {
+      if (favFont === font){
+        array.splice(index, 1)
+      }
+    })
+    
+    setFavouritedFonts(array)
+    
+    fontService.removeFontFromStorage(font)
+    // TODO show notification
+  }
   const handleTextInputChange = (event) => {
     setFontTextInput(event.target.value)
   }
@@ -139,15 +157,15 @@ const App = (props) => {
         />
         <Switch>
           <Route exact path="/">
-              <div className="cards-container grid-view">
+              <div className="cards-container grid-view catalog-view">
                 {/* cards */}
-                {cardsToShow(fontsToShow)}
+                {cardsToShow(fontsToShow, 'catalog')}
               </div>
             </Route >
           <Route path="/favourites" >
-              <div className="cards-container grid-view">
+              <div className="cards-container grid-view favourites-view">
                 {/* favourite font cards */}
-                {cardsToShow(fontsToShow)}
+                {cardsToShow(fontsToShow, 'favourites')}
               </div>
           </Route>
         

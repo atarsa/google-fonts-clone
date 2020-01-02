@@ -59,3 +59,24 @@
 .fa-redo {
   color: $grey;
 }
+
+// show/ hide add and delete font icon depending on location
+.catalog-view {
+  .add-font {
+    display: block;
+  }
+
+  .delete-font {
+    display: none;
+  }
+}
+
+.favourites-view {
+  .add-font {
+    display: none;
+  }
+
+  .delete-font {
+    display: block;
+  }
+}
