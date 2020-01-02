@@ -29,15 +29,18 @@
   }
 }
 
-// font navbar icons
-.nav-container-icon__info {
+// font navbar icons & font card icon
+.nav-container-icon__info,
+.fontCard-icon__info {
   position: absolute;
   transform: translate(-50%, -2em);
 }
 
+
 // show tooltip on hover
 .back-to-top-btn:hover .tooltip,
-.nav-container-icon:hover .tooltip {
+.nav-container-icon:hover .tooltip,
+.fontCard-icon:hover .tooltip {
   opacity: 1;
 
 }
@@ -46,11 +49,34 @@
   transform: translate(0, -5px);
 }
 
-.nav-container-icon:hover .tooltip {
+.nav-container-icon:hover .tooltip,
+.fontCard-icon:hover .tooltip {
   transform: translate(-50%, 2em);
 }
+
 
 // reset icon
 .fa-redo {
   color: $grey;
+}
+
+// show/ hide add and delete font icon depending on location
+.catalog-view {
+  .add-font {
+    display: block;
+  }
+
+  .delete-font {
+    display: none;
+  }
+}
+
+.favourites-view {
+  .add-font {
+    display: none;
+  }
+
+  .delete-font {
+    display: block;
+  }
 }

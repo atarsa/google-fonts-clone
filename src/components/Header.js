@@ -1,11 +1,12 @@
 import React from 'react'
+import { Link } from 'react-router-dom'
 import { FontAwesomeIcon } from '@fortawesome/react-fontawesome'
 
 const Header = () => {
   return (
     <header>
       <div className="brand">
-        <a href="index.html">Favourite Google Fonts</a>
+        <Link to="/">Favourite Google Fonts</Link>
       </div>
       {/* Input to toggle menu for small devices */}
       <input id="toggle" type="checkbox" />
@@ -15,10 +16,10 @@ const Header = () => {
       
       <nav className="nav">
         <ul>
-          <li><a href="index.html">CATALOG</a></li>
-          <li><a href="index.html">FEATURED</a></li>
-          <li><a href="index.html">ARTICLES</a></li>
-          <li><a href="index.html">ABOUT</a></li>
+          <li><Link to="/"> CATALOG </Link></li>
+          <li><Link to="/favourites"> FAVOURITES </Link></li>
+          
+          <li><Link to="/about"> ABOUT </Link></li>
         </ul>
       </nav>
       

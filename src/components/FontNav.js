@@ -5,7 +5,7 @@ const FontNav = ( {textChange, fontSizeChange, fontSearchChange, resetBtnClick} 
 
   const handleModeToggleClick = (e) => {
     const body = document.querySelector('body')
-    // TODO Refactor to use state ?? 
+    
     if (body.classList.contains('light-mode')){
       body.classList.remove('light-mode')
       body.classList.add('dark-mode')

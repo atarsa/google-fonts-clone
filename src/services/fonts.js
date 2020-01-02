@@ -45,7 +45,50 @@ const createFontFaceObjs = (fonts) => {
   }
 )}
 
+const addFontToStorage = (font) => {
+  let favFonts;
+  // check if empty
+  if (localStorage.getItem('favFonts') === null){
+    favFonts = []
+    favFonts.push(font);
+
+    // set ls to favFonts
+    localStorage.setItem('favFonts', JSON.stringify(favFonts))
+  } else {
+    // get fonts from ls
+    favFonts = JSON.parse(localStorage.getItem('favFonts'))
+    favFonts.push(font)
+
+    localStorage.setItem('favFonts', JSON.stringify(favFonts))
+  }
+}
+
+const getFontsFromStorage = () => {
+  let favFonts
+
+  if (localStorage.getItem('favFonts') === null){
+    favFonts = [];
+  } else {   
+    favFonts = JSON.parse(localStorage.getItem('favFonts'))
+  }
+  return favFonts
+}
+
+const removeFontFromStorage = (font) => {
+  let favFonts = JSON.parse(localStorage.getItem('favFonts'))
+
+  favFonts.forEach((favFont, index) => {
+    if (favFont === font){
+      favFonts.splice(index, 1)
+    }
+  })
+
+  localStorage.setItem('favFonts', JSON.stringify(favFonts))
+}
 
 export default {
-  getAll
+  getAll,
+  addFontToStorage,
+  getFontsFromStorage,
+  removeFontFromStorage
 }
