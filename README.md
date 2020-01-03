@@ -8,13 +8,13 @@ A Front-End App that fetches fonts from [Google API](https://developers.google.c
 - [x] changing the card text font
 - [x] displaying font cards a grid or as a list
 - [x] changing color theme to light or dark
-- [ ] saving favourite fonts to local storage
+- [x] saving favourite fonts to local storage
 
 The app is fully responsive, with mobile first approach.
 
 #### Running this project locally
 ##### Live version:
-[Favourite fonts](https://atarsa.github.io/google-fonts-clone/)
+[Favourite fonts](https://google-fonts-clone.netlify.com/)
 
 ##### From the repo:
 1. Clone this project locally
