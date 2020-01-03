@@ -2,17 +2,18 @@ html,
 body,
 div#root {
   height: 100%;
+  width: 100%;
+  overflow-x: hidden;
 }
 
 .container {
   height: 100%;
-
-
+  width: 100%;
 }
 
 main {
   margin: 1em auto;
-  max-width: 1440px;
+
 
   & .about {
     padding: 1em 2em;
@@ -35,4 +36,11 @@ main {
 
 .grid-view-icon {
   display: none;
+}
+
+
+@media (min-width: 660px) {
+  main {
+    max-width: 1440px;
+  }
 }
