@@ -44,5 +44,5 @@
     "@testing-library/react": "^9.3.2"
   },
   "proxy": "https://www.googleapis.com",
-  "homepage": "https://atarsa.github.io/google-fonts-clone"
+  "homepage": "/"
 }
