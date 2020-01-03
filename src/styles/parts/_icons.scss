@@ -33,7 +33,7 @@
 .nav-container-icon__info,
 .fontCard-icon__info {
   position: absolute;
-  transform: translate(-50%, -2em);
+  transform: translate(-100%, -2em);
 }
 
 
@@ -51,7 +51,7 @@
 
 .nav-container-icon:hover .tooltip,
 .fontCard-icon:hover .tooltip {
-  transform: translate(-50%, 2em);
+  transform: translate(-100%, 2em);
 }
 
 
@@ -78,5 +78,21 @@
 
   .delete-font {
     display: block;
+  }
+}
+
+
+@media (min-width: 660px) {
+
+  // font navbar icons & font card icon 
+  .nav-container-icon__info,
+  .fontCard-icon__info {
+    position: absolute;
+    transform: translate(-50%, -2em);
+  }
+
+  .nav-container-icon:hover .tooltip,
+  .fontCard-icon:hover .tooltip {
+    transform: translate(-50%, 2em);
   }
 }

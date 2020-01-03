@@ -1,15 +1,38 @@
 .notification {
-  display: flex;
-  justify-content: center;
+  position: absolute;
+  transform: translate(10vw, -10vh);
   width: 80%;
-  margin: 0 auto;
+  opacity: 0;
+  transition: opacity .1s ease-in, transform .1s ease-in;
   border-radius: 3px;
-  background-color: #f5f5f5;
   box-shadow: 5px 5px 9px -10px rgba(0, 0, 0, 0.75);
 
   & p {
-    font-size: 1.5em;
+    font-size: 1.3em;
     padding: 0 0.5em;
+    text-align: center;
   }
 
+}
+
+.notification.popup {
+  position: absolute;
+  transform: translate(10vw, 0);
+  opacity: 1;
+  background-color: #f5f5f5;
+  display: flex;
+  justify-content: center;
+  transition: opacity .1s ease-in, transform .1s ease-in;
+}
+
+
+@media (min-width: 660px) {
+  .notification {
+    transform: translate(25vw, -20vh);
+    width: 50%;
+  }
+
+  .notification.popup {
+    transform: translate(25vw, 0);
+  }
 }

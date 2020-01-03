@@ -149,10 +149,16 @@ const App = (props) => {
   }
 
   const showNotification = (msg) => {
+    const notificationDiv = document.querySelector('.notification')
+    
     setNotification(msg)
+        
+    notificationDiv.classList.add('popup')
+    
     setTimeout(()=> {
-        setNotification('')
-      }, 5000) 
+      notificationDiv.classList.remove('popup')
+      setNotification('')        
+    }, 5000) 
   }
 
   return(
