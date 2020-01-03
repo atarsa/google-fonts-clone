@@ -217,4 +217,24 @@ const App = (props) => {
   
 })
 
+ 
+// for mobile users
+// close navigation after link clicked
+const docLoaded = () => {
+  const navToggle = document.querySelector('#toggle')
+  const nav = document.querySelector('.nav')
+
+  nav.addEventListener('click', (e) => {
+        
+    if (navToggle.checked){
+      if (e.target.tagName === 'A'){
+        navToggle.checked = false
+      }      
+    }
+  }) 
+}
+
+window.onload = docLoaded
+
+
 export default App;
