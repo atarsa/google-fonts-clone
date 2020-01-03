@@ -1,0 +1,4 @@
+[build]
+base = "google-fonts-clone/"
+publish = "google-fonts-clone/build/"
+command = "npm run build"
